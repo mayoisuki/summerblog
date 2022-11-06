@@ -1,0 +1,50 @@
+server:
+  port: 7777
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/summer_blog?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+  transaction:
+    rollback-on-commit-failure: true
+  redis:
+    host: localhost
+    password:
+#      数据索引，默认0
+    database: 1
+    port: 6379
+#    超时时间，Duration类型，3秒
+    timeout: 3S
+#  web:
+#    resources:
+#      static-locations: classpath:/yixin/
+#  mvc:
+#    static-path-pattern: /uploads/**
+#  web:
+#    resources:
+#      static-locations: D:\repository5\summer_blog\uploads\
+#  web:
+#    resources:
+#      static-locations:
+#  resources:
+#  web:
+#    resources:
+#      static-locations:
+
+mybatis-plus:
+  configuration:
+    cache-enabled: true
+    map-underscore-to-camel-case: true
+  global-config:
+    db-column-underline: true
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: auto
+      field-strategy: not_empty
+    refresh-mapper: true
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+  type-aliases-package: com.panxudong.summerblog.entity
